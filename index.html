@@ -7,139 +7,208 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Crimson+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
 
 <style>
 /* ============================================================
-   DESIGN & PALETTE (Western Style)
+   DESIGN & PALETTE (Blackwater Elegant Western)
    ============================================================ */
 :root {
-  --paper:       #f5ead6;
-  --paper-dark:  #e8d5b0;
-  --paper-light: #faf3e4;
-  --ink:         #1c1208;
-  --ink-soft:    #3b2d14;
-  --brown-deep:  #3d1f08;
-  --brown-mid:   #6b3d1e;
-  --brown-warm:  #8c5230;
-  --sepia:       #a0723a;
-  --sepia-light: #c49a5e;
-  --border:      #b08050;
-  --border-soft: #d4a96a;
-  --shadow:      rgba(30, 15, 2, 0.18);
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-body:    'Crimson Text', Georgia, serif;
-  --radius: 3px;
-  --transition: 0.25s ease;
+  --paper:       #f2e6d0; /* Altes Pergament */
+  --paper-dark:  #e0d2b4;
+  --ink:         #2a1b0a; /* Fast Schwarz (Tinte) */
+  --wood-dark:   #2b1a0f; /* Dunkles Holz für den Hintergrund */
+  --gold:        #c49a5e; /* Goldene Akzente */
+  --accent:      #8c2d1f; /* Dezentes Weinrot für Details */
+  --font-display: 'Playfair Display', serif;
+  --font-body:    'Crimson Text', serif;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
 body {
-  background-color: var(--brown-deep);
+  background-color: var(--wood-dark);
+  /* Ein dezentes Muster für den Hintergrund (Holz/Stoff-Struktur) */
+  background-image: url("https://www.transparenttextures.com/patterns/dark-leather.png");
   color: var(--ink);
   font-family: var(--font-body);
-  font-size: 17px;
-  line-height: 1.65;
+  font-size: 18px;
+  line-height: 1.6;
   min-height: 100vh;
 }
 
-/* Texture Overlay */
-body::before {
-  content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9999;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-  opacity: 0.45;
-}
-
+/* Header */
 header {
-  background-color: var(--brown-deep);
-  border-bottom: 3px solid var(--sepia);
-  padding: 28px 0 16px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-bottom: 2px solid var(--gold);
+  padding: 40px 20px;
   text-align: center;
 }
 
 header h1 {
   font-family: var(--font-display);
-  font-size: clamp(24px, 6vw, 52px);
-  color: var(--paper);
+  font-size: clamp(30px, 8vw, 60px);
+  color: var(--gold);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  text-shadow: 2px 3px 8px rgba(0,0,0,0.5);
+  letter-spacing: 0.15em;
+  text-shadow: 3px 3px 5px rgba(0,0,0,0.8);
 }
 
 header h1 span {
-  display: block; font-size: 0.38em; font-weight: 400; color: var(--sepia-light); margin-top: 4px;
+  display: block;
+  font-size: 0.35em;
+  letter-spacing: 0.3em;
+  color: #fff;
+  margin-top: 10px;
+  font-weight: 400;
+  opacity: 0.8;
 }
 
+/* Navigation */
 nav {
-  background-color: var(--ink);
-  border-bottom: 2px solid var(--sepia);
-  position: sticky; top: 0; z-index: 100;
+  background-color: #1a0f08;
+  border-bottom: 1px solid var(--gold);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 
 nav ul {
-  list-style: none; display: flex; justify-content: center; max-width: 860px; margin: 0 auto;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 nav ul li a {
-  display: block; padding: 14px 22px; text-align: center;
-  font-family: var(--font-display); font-size: 14px; font-weight: 600;
-  color: var(--paper-dark); text-decoration: none; text-transform: uppercase;
-  transition: background var(--transition);
+  display: block;
+  padding: 15px 25px;
+  font-family: var(--font-display);
+  font-size: 14px;
+  color: var(--paper-dark);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.3s;
 }
 
 nav ul li a:hover, nav ul li a.active {
-  background-color: var(--brown-mid); color: var(--paper-light);
+  color: var(--gold);
+  background: rgba(255,255,255,0.05);
 }
 
-.page-wrapper { max-width: 860px; margin: 0 auto; padding: 32px 20px 60px; }
-.view { display: none; }
-.view.active { display: block; animation: fadeIn 0.35s ease; }
+/* Content Area */
+.page-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
 
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.view { display: none; }
+.view.active { display: block; animation: fadeIn 0.5s ease; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
 .section-header {
-  display: flex; align-items: center; justify-content: space-between;
-  margin-bottom: 28px; border-bottom: 1px solid var(--border-soft); padding-bottom: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 10px;
 }
 
-.section-title { font-family: var(--font-display); font-size: 26px; color: var(--brown-deep); text-transform: uppercase; }
+.section-title {
+  font-family: var(--font-display);
+  font-size: 28px;
+  color: var(--gold);
+  text-transform: uppercase;
+}
 
+/* Buttons */
 .btn {
-  display: inline-flex; align-items: center; padding: 9px 18px;
-  font-family: var(--font-display); font-size: 13px; font-weight: 600;
-  text-transform: uppercase; border: none; border-radius: var(--radius); cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 1px solid var(--gold);
+  cursor: pointer;
+  transition: all 0.3s;
+  background: transparent;
 }
 
-.btn-primary { background-color: var(--brown-deep); color: var(--paper-light); }
-.btn-primary:hover { background-color: var(--brown-mid); }
+.btn-primary {
+  background-color: var(--gold);
+  color: var(--wood-dark);
+}
 
+.btn-primary:hover {
+  background-color: transparent;
+  color: var(--gold);
+}
+
+/* Paper Cards */
 .paper {
-  background-color: var(--paper); border: 1px solid var(--border-soft);
-  box-shadow: 0 2px 10px var(--shadow); padding: 20px;
+  background-color: var(--paper);
+  background-image: url("https://www.transparenttextures.com/patterns/parchment.png");
+  border: 1px solid #c0b090;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.3), inset 0 0 50px rgba(0,0,0,0.05);
+  padding: 25px;
+  position: relative;
 }
 
-.data-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 18px; }
-.data-card { position: relative; padding: 15px; }
-.card-title { font-family: var(--font-display); font-weight: 700; color: var(--brown-deep); border-bottom: 1px dashed var(--border-soft); margin-bottom: 8px; text-transform: uppercase; }
+.data-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+}
 
-.appt-item { border-left: 4px solid var(--sepia); margin-bottom: 12px; padding: 12px; position: relative; }
+.data-card {
+  transition: transform 0.2s;
+}
+.data-card:hover { transform: scale(1.02); }
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+}
 
 /* Modals */
 .modal-overlay {
-  position: fixed; inset: 0; background: rgba(0,0,0,0.7);
+  position: fixed; inset: 0; background: rgba(0,0,0,0.85);
   display: none; align-items: center; justify-content: center; z-index: 1000;
+  backdrop-filter: blur(3px);
 }
 .modal-overlay.open { display: flex; }
-.modal { background: var(--paper); padding: 30px; width: 95%; max-width: 450px; border-radius: 3px; border: 1px solid var(--border); }
-.form-group { margin-bottom: 15px; display: flex; flex-direction: column; }
-.form-group label { font-family: var(--font-display); font-size: 12px; color: var(--sepia); text-transform: uppercase; margin-bottom: 5px; }
-.form-group input, .form-group select, .form-group textarea { padding: 10px; border: 1px solid var(--border-soft); background: var(--paper-light); font-family: var(--font-body); font-size: 16px; }
+.modal {
+  background: var(--paper);
+  background-image: url("https://www.transparenttextures.com/patterns/parchment.png");
+  padding: 40px;
+  width: 90%;
+  max-width: 500px;
+  border: 3px double var(--gold);
+}
+
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-family: var(--font-display); font-size: 12px; text-transform: uppercase; color: var(--accent); margin-bottom: 5px; }
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%; padding: 12px; border: 1px solid #c0b090; background: rgba(255,255,255,0.3); font-family: var(--font-body); font-size: 16px;
+}
+
+.appt-item { margin-bottom: 15px; border-left: 5px solid var(--accent); }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>Blackwater<span>Stadtverwaltung • Echtzeit-Synchronisiert</span></h1>
+  <h1>Blackwater<span>Bürgeramt</span></h1>
 </header>
 
 <nav>
@@ -153,7 +222,7 @@ nav ul li a:hover, nav ul li a.active {
 <div class="page-wrapper">
   <section id="view-citizens" class="view active">
     <div class="section-header">
-      <h2 class="section-title">Bürgerverzeichnis</h2>
+      <h2 class="section-title">Einwohnerregister</h2>
       <button class="btn btn-primary" id="btn-add-citizen">+ Bürger eintragen</button>
     </div>
     <div class="data-grid" id="citizen-grid"></div>
@@ -161,18 +230,19 @@ nav ul li a:hover, nav ul li a.active {
 
   <section id="view-appointments" class="view">
     <div class="section-header"><h2 class="section-title">Terminkalender</h2></div>
-    <div class="paper" style="margin-bottom: 30px;">
+    <div class="paper" style="margin-bottom: 40px;">
+        <h3 style="margin-bottom:15px; font-family:var(--font-display);">Neuen Termin ansetzen</h3>
         <div class="form-group"><label>Treffpunkt</label><select id="appt-location"><option>Blackwater</option><option>Valentine</option><option>Saint Denis</option><option>Rhodes</option><option>Strawberry</option></select></div>
         <div class="form-group"><label>Datum & Uhrzeit</label><input type="datetime-local" id="appt-datetime"></div>
         <div class="form-group"><label>Anlass</label><textarea id="appt-note" placeholder="Grund des Termins..."></textarea></div>
-        <button class="btn btn-primary" id="btn-add-appt">Termin festlegen</button>
+        <button class="btn btn-primary" id="btn-add-appt">Termin im Kalender vermerken</button>
     </div>
     <div id="list-appointments"></div>
   </section>
 
   <section id="view-businesses" class="view">
     <div class="section-header">
-        <h2 class="section-title">Gewerbeverzeichnis</h2>
+        <h2 class="section-title">Gewerbe-Verzeichnis</h2>
         <button class="btn btn-primary" id="btn-add-business">+ Gewerbe anmelden</button>
     </div>
     <div class="data-grid" id="business-grid"></div>
@@ -181,28 +251,28 @@ nav ul li a:hover, nav ul li a.active {
 
 <div class="modal-overlay" id="modal-citizen">
     <div class="modal">
-        <h3 class="section-title" style="font-size: 20px; margin-bottom: 15px;">Personenakte</h3>
+        <h3 class="section-title" style="margin-bottom: 20px;">Neue Personenakte</h3>
         <div class="form-group"><label>Vollständiger Name</label><input type="text" id="c-name"></div>
         <div class="form-group"><label>Alter</label><input type="number" id="c-age"></div>
         <div class="form-group"><label>Beruf</label><input type="text" id="c-job"></div>
         <div class="form-group"><label>Wohnort / Lager</label><input type="text" id="c-home"></div>
-        <div style="display:flex; gap:10px; margin-top:20px;">
-            <button class="btn btn-primary" id="btn-save-citizen">In das Register aufnehmen</button>
-            <button class="btn" onclick="closeModal('modal-citizen')">Abbrechen</button>
+        <div style="display:flex; gap:15px; margin-top:25px;">
+            <button class="btn btn-primary" id="btn-save-citizen">Eintragen</button>
+            <button class="btn" style="color:var(--accent);" onclick="closeModal('modal-citizen')">Abbrechen</button>
         </div>
     </div>
 </div>
 
 <div class="modal-overlay" id="modal-business">
     <div class="modal">
-        <h3 class="section-title" style="font-size: 20px; margin-bottom: 15px;">Gewerbeschein</h3>
+        <h3 class="section-title" style="margin-bottom: 20px;">Gewerbeanmeldung</h3>
         <div class="form-group"><label>Name des Geschäfts</label><input type="text" id="b-name"></div>
         <div class="form-group"><label>Inhaber</label><input type="text" id="b-owner"></div>
         <div class="form-group"><label>Anschrift</label><input type="text" id="b-address"></div>
         <div class="form-group"><label>Art des Gewerbes</label><input type="text" id="b-type"></div>
-        <div style="display:flex; gap:10px; margin-top:20px;">
-            <button class="btn btn-primary" id="btn-save-business">Gewerbe eintragen</button>
-            <button class="btn" onclick="closeModal('modal-business')">Abbrechen</button>
+        <div style="display:flex; gap:15px; margin-top:25px;">
+            <button class="btn btn-primary" id="btn-save-business">Gewerbe anmelden</button>
+            <button class="btn" style="color:var(--accent);" onclick="closeModal('modal-business')">Abbrechen</button>
         </div>
     </div>
 </div>
@@ -212,7 +282,6 @@ nav ul li a:hover, nav ul li a.active {
   import { getFirestore, collection, addDoc, onSnapshot, doc, deleteDoc, query, orderBy } 
   from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-  // DEINE KONFIGURATION (Direkt eingebaut)
   const firebaseConfig = {
     apiKey: "AIzaSyAJ_OvlQ_K-rMgJl-7mhE0Zp2nnIIvsPVc",
     authDomain: "stadt-blackwater.firebaseapp.com",
@@ -225,7 +294,7 @@ nav ul li a:hover, nav ul li a.active {
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
 
-  // NAVIGATION LOGIK
+  // NAVIGATION
   const navLinks = document.querySelectorAll('.nav-link');
   const views = document.querySelectorAll('.view');
   navLinks.forEach(link => {
@@ -240,7 +309,7 @@ nav ul li a:hover, nav ul li a.active {
 
   window.closeModal = (id) => document.getElementById(id).classList.remove('open');
 
-  // --- 1. BÜRGER LOGIK (Echtzeit-Sync) ---
+  // BÜRGER
   const citizenCol = collection(db, "citizens");
   onSnapshot(citizenCol, (snapshot) => {
     const grid = document.getElementById('citizen-grid');
@@ -251,12 +320,12 @@ nav ul li a:hover, nav ul li a.active {
       card.className = 'data-card paper';
       card.innerHTML = `
         <div class="card-title">${c.name}</div>
-        <div style="font-size:14px; color:var(--ink-soft)">
+        <div style="font-size:15px;">
             <strong>Alter:</strong> ${c.age}<br>
             <strong>Beruf:</strong> ${c.job}<br>
             <strong>Ort:</strong> ${c.home}
         </div>
-        <button onclick="window.delDoc('citizens','${docSnap.id}')" style="background:none; border:none; color:var(--sepia); cursor:pointer; font-size:12px; margin-top:10px;">[ Akte vernichten ]</button>
+        <button onclick="window.delDoc('citizens','${docSnap.id}')" style="background:none; border:none; color:#8c2d1f; cursor:pointer; font-size:11px; margin-top:15px; text-transform:uppercase;">[ Akte schließen ]</button>
       `;
       grid.appendChild(card);
     });
@@ -272,12 +341,11 @@ nav ul li a:hover, nav ul li a.active {
       job: document.getElementById('c-job').value,
       home: document.getElementById('c-home').value
     });
-    document.getElementById('modal-citizen').classList.remove('open');
-    // Felder leeren
+    closeModal('modal-citizen');
     document.querySelectorAll('#modal-citizen input').forEach(i => i.value = '');
   };
 
-  // --- 2. TERMINE LOGIK ---
+  // TERMINE
   const apptCol = collection(db, "appointments");
   onSnapshot(query(apptCol, orderBy("date")), (snapshot) => {
     const list = document.getElementById('list-appointments');
@@ -287,10 +355,10 @@ nav ul li a:hover, nav ul li a.active {
       const item = document.createElement('div');
       item.className = 'appt-item paper';
       item.innerHTML = `
-        <div style="font-family:var(--font-display); font-weight:700;">${a.location}</div>
-        <div style="font-style:italic; font-size:13px; color:var(--sepia);">${new Date(a.date).toLocaleString('de-DE')} Uhr</div>
-        <div style="margin-top:5px;">${a.note}</div>
-        <button onclick="window.delDoc('appointments','${docSnap.id}')" style="position:absolute; top:10px; right:10px; border:none; background:none; color:red; cursor:pointer;">&times;</button>
+        <div style="font-family:var(--font-display); font-size:18px; font-weight:bold;">${a.location}</div>
+        <div style="font-style:italic; font-size:14px; color:#8c2d1f;">${new Date(a.date).toLocaleString('de-DE')} Uhr</div>
+        <div style="margin-top:8px;">${a.note}</div>
+        <button onclick="window.delDoc('appointments','${docSnap.id}')" style="position:absolute; top:10px; right:15px; border:none; background:none; font-size:20px; cursor:pointer;">&times;</button>
       `;
       list.appendChild(item);
     });
@@ -307,7 +375,7 @@ nav ul li a:hover, nav ul li a.active {
     document.getElementById('appt-note').value = '';
   };
 
-  // --- 3. GEWERBE LOGIK ---
+  // GEWERBE
   const bizCol = collection(db, "businesses");
   onSnapshot(bizCol, (snapshot) => {
     const grid = document.getElementById('business-grid');
@@ -318,12 +386,12 @@ nav ul li a:hover, nav ul li a.active {
       card.className = 'data-card paper';
       card.innerHTML = `
         <div class="card-title">${b.name}</div>
-        <div style="font-size:14px;">
+        <div style="font-size:15px;">
             <strong>Inhaber:</strong> ${b.owner}<br>
             <strong>Anschrift:</strong> ${b.address}<br>
             <strong>Art:</strong> ${b.type}
         </div>
-        <button onclick="window.delDoc('businesses','${docSnap.id}')" style="background:none; border:none; color:var(--sepia); cursor:pointer; font-size:12px; margin-top:10px;">[ Gewerbe abmelden ]</button>
+        <button onclick="window.delDoc('businesses','${docSnap.id}')" style="background:none; border:none; color:#8c2d1f; cursor:pointer; font-size:11px; margin-top:15px; text-transform:uppercase;">[ Lizenz entziehen ]</button>
       `;
       grid.appendChild(card);
     });
@@ -337,11 +405,11 @@ nav ul li a:hover, nav ul li a.active {
       address: document.getElementById('b-address').value,
       type: document.getElementById('b-type').value
     });
-    document.getElementById('modal-business').classList.remove('open');
+    closeModal('modal-business');
     document.querySelectorAll('#modal-business input').forEach(i => i.value = '');
   };
 
-  // GLOBALE LÖSCHFUNKTION
+  // LÖSCHEN
   window.delDoc = async (coll, id) => {
     if(confirm("Möchten Sie diesen Eintrag wirklich dauerhaft aus den Akten löschen?")) {
         await deleteDoc(doc(db, coll, id));
