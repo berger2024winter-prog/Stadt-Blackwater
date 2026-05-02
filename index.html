@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zum Jungen Fritz | Gast- & Logierhaus Rheinsberg</title>
+    
+    <link rel="icon" href="images/logo.png" type="image/png">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Lora:wght@400;500&display=swap" rel="stylesheet">
     <style>
@@ -27,6 +30,42 @@
             font-weight: 700;
         }
 
+        /* --- VERBESSERTE LESBARKEIT DER DIASHOW --- */
+        .carousel-caption { 
+            background: rgba(25, 15, 10, 0.85); 
+            border: 2px solid var(--vintage-gold); 
+            padding: 40px; 
+            bottom: 20%;
+            border-radius: 4px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        
+        .carousel-caption h1, .carousel-caption h2 { 
+            color: #fff !important; 
+            text-transform: uppercase; 
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            margin-bottom: 15px;
+        }
+
+        .carousel-caption p {
+            color: #fdfaf1 !important;
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+            font-style: italic;
+        }
+
+        .carousel-item { 
+            height: 70vh; 
+            min-height: 500px; 
+            background-size: cover; 
+            background-position: center; 
+            filter: brightness(0.85);
+        }
+        /* ------------------------------------------ */
+
         .top-info { 
             background: var(--vintage-brown); 
             color: #f1ede3; 
@@ -40,27 +79,10 @@
         .nav-link { font-style: italic; color: var(--vintage-brown) !important; margin: 0 10px; }
         .nav-link:hover { color: var(--vintage-gold) !important; }
 
-        .carousel-item { 
-            height: 65vh; 
-            min-height: 450px; 
-            background-size: cover; 
-            background-position: center; 
-            filter: sepia(0.2) contrast(1.05) brightness(0.9);
-        }
-        .carousel-caption { 
-            background: rgba(61, 43, 31, 0.8); 
-            border: 2px solid var(--vintage-gold); 
-            padding: 40px; 
-            bottom: 20%;
-            border-radius: 2px;
-        }
-        .carousel-caption h1 { color: #fdfaf1; text-transform: uppercase; letter-spacing: 2px; }
-
         .section-padding { padding: 100px 0; }
         .img-vintage-frame { 
             border: 10px solid #fff; 
             box-shadow: 0 12px 30px rgba(0,0,0,0.15); 
-            filter: sepia(0.1);
         }
 
         .opening-hours { 
@@ -88,6 +110,9 @@
         }
         .btn-vintage:hover { background: var(--vintage-brown); color: #fff; transform: translateY(-2px); }
 
+        .btn-dark-vintage { background: var(--vintage-brown); color: #fff; }
+        .btn-dark-vintage:hover { background: var(--vintage-gold); color: #fff; }
+
         .activity-card { 
             background: #fff; 
             border: 1px solid var(--border-soft); 
@@ -98,8 +123,18 @@
         .activity-card:hover { border-color: var(--vintage-gold); transform: translateY(-5px); }
         .link-classic { color: var(--vintage-gold); font-weight: 700; text-decoration: none; font-style: italic; }
 
+        .menu-placeholder {
+            background: #e9e2d5;
+            border: 2px dashed var(--vintage-gold);
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--vintage-brown);
+            font-style: italic;
+        }
+
         footer { background: var(--vintage-brown); color: #dcd0c0; padding: 80px 0 40px; }
-        footer h3 { color: var(--vintage-gold); }
     </style>
 </head>
 <body>
@@ -107,7 +142,7 @@
 <div class="top-info">
     <div class="container d-flex flex-wrap justify-content-between align-items-center">
         <div>
-            <span class="me-4">Adresse: <a href="http://googleusercontent.com/maps.google.com/4" target="_blank">Schloßstraße 8, 16831 Rheinsberg</a></span>
+            <span class="me-4">Adresse: <a href="#anreise">Schloßstraße 8, 16831 Rheinsberg</a></span>
             <span>Telefon: 033931 2168</span>
         </div>
         <div class="mt-2 mt-md-0">
@@ -118,12 +153,20 @@
 
 <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
-        <a class="navbar-brand" href="#">Zum Jungen Fritz</a>
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav ms-auto">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="images/logo.png" alt="Logo" style="height: 45px; margin-right: 15px;">
+            Zum Jungen Fritz
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav ms-auto align-items-center">
                 <li class="nav-item"><a class="nav-link" href="#gaststube">Gastlichkeit</a></li>
+                <li class="nav-item"><a class="nav-link" href="#speisekarte">Speisekarte</a></li>
                 <li class="nav-item"><a class="nav-link" href="#pension">Pension</a></li>
                 <li class="nav-item"><a class="nav-link" href="#unternehmungen">Umgebung</a></li>
+                <li class="nav-item"><a class="nav-link" href="#anreise">Anreise</a></li>
             </ul>
         </div>
     </div>
@@ -135,18 +178,21 @@
             <div class="carousel-caption">
                 <h1>Willkommen</h1>
                 <p>Traditionelle Gastlichkeit im Herzen Rheinsbergs</p>
+                <a href="https://junger-fritz.holiduhost.com/" target="_blank" class="btn-vintage mt-3">Jetzt online buchen</a>
             </div>
         </div>
         <div class="carousel-item" style="background-image: url('images/schloss.png');">
             <div class="carousel-caption">
                 <h2>Kultur erleben</h2>
                 <p>Direkt am historischen Schlosspark gelegen</p>
+                <a href="https://junger-fritz.holiduhost.com/" target="_blank" class="btn-vintage mt-3">Zimmer ansehen</a>
             </div>
         </div>
         <div class="carousel-item" style="background-image: url('images/gastraum.png');">
             <div class="carousel-caption">
                 <h2>Preußische Küche</h2>
                 <p>Ehrliche Rezepte in historischem Ambiente</p>
+                <a href="#gaststube" class="btn-vintage mt-3">Zur Gaststube</a>
             </div>
         </div>
     </div>
@@ -156,8 +202,7 @@
     <div class="row g-5 align-items-center">
         <div class="col-lg-6">
             <h2 class="mb-4 italic">Essen & Trinken</h2>
-            <p>Genießen Sie brandenburgische Spezialitäten in unserer rustikalen Gaststube. Wir bewahren die Rezepte, die unsere Region seit Generationen prägen.</p>
-            
+            <p>Genießen Sie brandenburgische Spezialitäten in unserer rustikalen Gaststube.</p>
             <div class="opening-hours mt-5">
                 <h4 class="text-center mb-4">Öffnungszeiten</h4>
                 <ul class="oh-list">
@@ -175,24 +220,31 @@
     </div>
 </section>
 
-<section id="pension" class="section-padding" style="background-color: #f3ede1;">
+<section id="speisekarte" class="section-padding" style="background-color: #fffcf5;">
     <div class="container text-center">
+        <h2 class="mb-5">Unsere Speisekarte</h2>
+        <div class="row g-4">
+            <div class="col-md-6"><div class="menu-placeholder">Speisen (Platzhalter)</div></div>
+            <div class="col-md-6"><div class="menu-placeholder">Getränke (Platzhalter)</div></div>
+        </div>
+    </div>
+</section>
+
+<section id="pension" class="section-padding container">
+    <div class="text-center">
         <h2 class="mb-4">Logieren beim Jungen Fritz</h2>
-        <p class="mb-5 mx-auto" style="max-width: 700px;">Unsere behaglichen Zimmer bieten Ihnen die ideale Ruheoase nach einem Tag voller Entdeckungen in Rheinsberg.</p>
-        
         <div class="row g-5 align-items-center mt-2 text-start">
             <div class="col-lg-5 text-center">
                 <img src="images/zimmer.png" alt="Zimmer" class="img-fluid img-vintage-frame">
             </div>
             <div class="col-lg-7 ps-lg-5">
                 <a href="https://junger-fritz.holiduhost.com/" target="_blank" class="btn-vintage mb-5">Verfügbarkeit & Buchung</a>
-                
-                <div class="p-4 bg-white border">
+                <div class="p-4 bg-white border mt-3">
                     <div class="d-flex align-items-center mb-3">
                         <img src="images/bett_bike_logo.png" alt="Bett+Bike" style="height: 45px; filter: grayscale(1);" class="me-3">
                         <h4 class="m-0">Biker & Radfahrer</h4>
                     </div>
-                    <p>Als zertifizierter Bett+Bike Betrieb bieten wir Ihnen sichere Unterstellmöglichkeiten und besten Service für Ihre Tour.</p>
+                    <p>Zertifizierter Bett+Bike Betrieb mit sicheren Unterstellmöglichkeiten.</p>
                     <a href="https://www.bettundbike.de/" target="_blank" class="link-classic">Mehr zu Bett+Bike →</a>
                 </div>
             </div>
@@ -209,22 +261,40 @@
         <div class="col-md-4">
             <div class="activity-card">
                 <h3>Kultur</h3>
-                <p>Schloss Rheinsberg und das Kurt-Tucholsky-Museum laden zu einer Reise in die Geschichte ein.</p>
+                <p>Schloss Rheinsberg und das Kurt-Tucholsky-Museum.</p>
                 <a href="https://www.spsg.de/schloesser-gaerten/objekt/schloss-rheinsberg/" target="_blank" class="link-classic">Schloss Rheinsberg →</a>
             </div>
         </div>
         <div class="col-md-4">
             <div class="activity-card">
                 <h3>Natur</h3>
-                <p>Besuchen Sie den Tierpark Kunsterspring und erleben Sie heimische Wildtiere in natürlicher Umgebung.</p>
+                <p>Besuchen Sie den Tierpark Kunsterspring.</p>
                 <a href="https://tierpark-kunsterspring.de/" target="_blank" class="link-classic">Tierpark besuchen →</a>
             </div>
         </div>
         <div class="col-md-4">
             <div class="activity-card">
                 <h3>Wasser</h3>
-                <p>Genießen Sie eine Dampferfahrt oder Kanutour auf dem spiegelglatten Grienericksee.</p>
-                <a href="https://www.rheinsberg.de/tourismus/aktiv-in-der-natur/auf-dem-wasser.html" target="_blank" class="link-classic">Wasser-Aktivitäten →</a>
+                <p>Dampferfahrten mit der Reederei Halbeck.</p>
+                <a href="https://www.schifffahrt-rheinsberg.de/" target="_blank" class="link-classic">Reederei Halbeck →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="anreise" class="section-padding" style="background-color: #f7f3e8; border-top: 1px solid var(--border-soft);">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-5">
+                <h2 class="mb-4">Anreise & Kontakt</h2>
+                <p><strong>Adresse:</strong> Schloßstraße 8, 16831 Rheinsberg</p>
+                <p><strong>Anreise:</strong> Nach Absprache. Bitte kontaktieren Sie uns per E-Mail oder Telefon für Ihren Check-In Termin.</p>
+                <div class="mt-4">
+                    <a href="https://search.google.com/local/writereview?placeid=ChIJ2ZoiL6NBqUcRodlP_2N6fkY" target="_blank" class="btn-vintage btn-dark-vintage">Google Bewertung schreiben</a>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2402.046328775086!2d12.8906!3d53.0991!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a941ae2f229ad9%3A0x467e7a63ff4fd961!2sSchlo%C3%9Fstra%C3%9Fe%208%2C%2016831%20Rheinsberg!5e0!3m2!1sde!2sde!4v1714560000000!5m2!1sde!2sde" width="100%" height="350" style="border:0; border-radius: 10px; filter: grayscale(0.3);" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </div>
@@ -232,13 +302,10 @@
 
 <footer>
     <div class="container text-center">
+        <img src="images/logo.png" alt="Logo" style="height: 70px; margin-bottom: 25px; filter: brightness(0) invert(1);">
         <h3>Zum Jungen Fritz</h3>
         <p>Familie Rottke | Schloßstraße 8 | 16831 Rheinsberg</p>
-        <p>Telefon: 033931 2168 | E-Mail: kontakt@junger-fritz.de</p>
-        <div class="mt-5 small">
-            <a href="#" style="color: #dcd0c0; text-decoration: none; margin: 0 15px;">Impressum</a>
-            <a href="#" style="color: #dcd0c0; text-decoration: none; margin: 0 15px;">Datenschutz</a>
-        </div>
+        <p>033931 2168 | kontakt@junger-fritz.de</p>
         <p class="mt-4 opacity-50">© 2026 Alle Rechte vorbehalten</p>
     </div>
 </footer>
